@@ -1,0 +1,56 @@
+﻿@import "bootstrap.css";
+
+
+.navbar-header{
+	font: 18px bold Arial, sans-serif;
+	color: #ffffff;
+}
+.navbar-brand{
+	padding-left: 50px;
+}
+
+#contentList{
+	
+	padding-top: 20px;
+	border: 2px solid #58677C;
+	margin: 0px;
+	padding: 0px;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+#contentList p{
+	font: 21px solid Arial, Helvetica, sans-serif;
+	text-align:left;
+	line-height: 30px;
+	padding: 20px 50px 50px 50px;
+}
+.colortext{
+	color:#0F8516;
+	text-decoration:underline;
+}
+#contentList ul {
+    list-style: none; 
+}
+.list{
+    padding-left: 10px;
+	text-align:left;
+	background: url("../images/list.png")no-repeat left center;
+}
+.bookList {
+    padding-left: 10px;
+	text-align:left;
+	background: url("../images/bookList.png")no-repeat left center;
+}
+#contentList li a { 
+	display: block;
+    padding: 2px 6px;
+    font: 18px solid Arial, Helvetica, sans-serif;
+	color: #000000;
+	line-height: 30px; 
+}
+#contentList li a:hover { 
+  background-color: #010000;
+  color: #ffffff;
+  text-decoration: none;
+  }
