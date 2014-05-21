@@ -1,8 +1,10 @@
-var listModule = angular.module('listModule',['ngRoute', 'RecursionHelper']);
+var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper']);
 
-listModule.config(function($routeProvider) {
+listModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.
-        otherwise({controller:listCtrl});
+        when("/content/:cntId",{templateUrl: "/frontend/content.html",controller: contentCtrl}).
+        otherwise({templateUrl: "/frontend/list.html",controller:listCtrl});
+    $locationProvider.html5Mode(true);
 });
 
 function listPart(data)
@@ -52,3 +54,14 @@ listModule.directive("tree", function(RecursionHelper) {
         }
     };
 });
+
+function contentCtrl($scope, $routeParams, $http, $sce)
+    {
+        $http.get("/cnt/"+$routeParams.cntId+"/content.json").success(
+            function(data)
+            {
+                $scope.content = $sce.trustAsHtml(data.content);
+            }
+        );
+    };
+

@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class = "row">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Открыть навигацию</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src = "images/logo.png" alt = "image"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="item in contents"><a href="#" ng-click="volClick(item)"><img src = "{{item.icon}}" alt = "image"></a></li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id = "contentList">
+    <div class = "row">
+        <div ng-repeat="item in contents | filter:vol:volFilter">
+            <tree family="item.contents"></tree>
+        </div>
+    </div>
+</div>
