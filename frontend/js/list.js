@@ -43,7 +43,7 @@ listModule.directive("tree", function(RecursionHelper) {
         replace: true,
         template:
                 '<ul>' +
-                '<li ng-repeat="item in family"><a href="#" class = "{{item.className}}">&nbsp {{item.name}}</a>'+
+                '<li ng-repeat="item in family"><a href="{{item.href}}" class = "{{item.className}}">&nbsp {{item.name}}</a>'+
                     '<tree family="item.contents"></tree>' +
                 '</li>' +
                 '</ul>',
