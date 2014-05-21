@@ -2,7 +2,7 @@ var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper'])
 
 listModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.
-        when("/content/:cntId",{templateUrl: "/frontend/content.html",controller: contentCtrl}).
+        when("/content/:cntId/:pId",{templateUrl: "/frontend/content.html",controller: 'contentCtrl'}).
         otherwise({templateUrl: "/frontend/list.html",controller:listCtrl});
     $locationProvider.html5Mode(true);
 });
@@ -54,14 +54,4 @@ listModule.directive("tree", function(RecursionHelper) {
         }
     };
 });
-
-function contentCtrl($scope, $routeParams, $http, $sce)
-    {
-        $http.get("/cnt/"+$routeParams.cntId+"/content.json").success(
-            function(data)
-            {
-                $scope.content = $sce.trustAsHtml(data.content);
-            }
-        );
-    };
 

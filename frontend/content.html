@@ -17,10 +17,14 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						 <ul class="nav navbar-nav">
-							<li><a href="#"><img src = "images/first.png" alt = "image"></a></li>
+							<!--<li><a href="#"><img src = "images/first.png" alt = "image"></a></li>
 							<li><a href="#"><img src = "images/dif.png" alt = "image"></a></li>
 							<li><a href="#"><img src = "images/graf.png" alt = "image"></a></li>
-							<li><a href="#"><img src = "images/task.png" alt = "image"></a></li>
+							<li><a href="#"><img src = "images/task.png" alt = "image"></a></li>-->
+                             <li ng-repeat="item in content.topPanelButtons">
+                                 <a href="{{item.href}}" ng-mousedown = "item.onMouseDown()" ng-mouseup = "item.onMouseUp()">
+                                     <img ng-src = "{{item.currentImageUrl}}" alt = "image"></a>
+                             </li>
 						 </ul>
 						<!-- <form class="navbar-form navbar-right" role="search">
 							<div class="form-group">
@@ -35,9 +39,7 @@
 			</nav>
 			
 			<div id = "content">
-			<div class = "row" ng-bind-html="content">
-
-			</div>			
+			<div class = "row" ng-bind-html="content.content"></div>
 			</div>
 			
 			<nav class="navbar navbar-inverse" role="navigation">
