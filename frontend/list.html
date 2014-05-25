@@ -16,7 +16,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ng-repeat="item in contents"><a href="#" ng-click="volClick(item)"><img src = "{{item.icon}}" alt = "image"></a></li>
+                    <navbutton ng-repeat="button in data.topPanelButtons" item="button"></navbutton>
                 </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -26,8 +26,7 @@
 
 <div id = "contentList">
     <div class = "row">
-        <div ng-repeat="item in contents | filter:vol:volFilter">
-            <tree family="item.contents"></tree>
+            <tree family="data.contents.contents"></tree>
         </div>
     </div>
 </div>

@@ -1,9 +1,10 @@
-var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper']);
+var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper','uiSlider', 'fundoo.services', 'ngStorage']);
 
 listModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.
         when("/content/:cntId/:pId",{templateUrl: "/frontend/content.html",controller: 'contentCtrl'}).
-        otherwise({templateUrl: "/frontend/list.html",controller:listCtrl});
+        when("/contents/:cntId",{templateUrl: "/frontend/list.html",controller: listCtrl}).
+        otherwise({"redirectTo": "/"});
     $locationProvider.html5Mode(true);
 });
 
@@ -15,26 +16,50 @@ function listPart(data)
     });
 }
 
-
-function listCtrl($http, $scope)
+function defineButton(v)
 {
-    $http.get('/contents.json').success(
-        function(data)
-        {
-            listPart(data);
-            $scope.contents = data;
-        });
-    $scope.vol= {"id": 1};
-    $scope.volFilter=function(actual, expected)
+    v.currentImageUrl = v.pressed ? v.pressedIcon : v.unpressedIcon;
+    if(!v.pressed)
     {
-        return actual==expected;
+        v.onMouseDown = function(){v.currentImageUrl = v.pressedIcon;}
+        v.onMouseUp = function(){v.currentImageUrl = v.unpressedIcon;}
     }
-    $scope.volClick=function(item)
+    else
     {
-        $scope.vol = {"id":item.id};
-        return false;
+        v.onMouseDown = function(){return;}
+        v.onMouseUp = function(){return;}
     }
 }
+
+
+function listCtrl($http, $scope, $routeParams)
+{
+    $http.get('/cnts/'+$routeParams.cntId+'/contents.json').success(
+        function(data)
+        {
+            listPart(data.contents.contents);
+            $scope.data = data;
+            angular.forEach($scope.data.topPanelButtons, defineButton);
+        });
+
+
+}
+
+listModule.directive("navbutton", function(RecursionHelper) {
+    return {
+        restrict: "E",
+        scope: {item: '='},
+        replace: true,
+        template:
+            '<a href="{{item.href}}" ng-mousedown = "item.onMouseDown()" ng-mouseup = "item.onMouseUp()">\
+                <img ng-src = "{{item.currentImageUrl}}" alt = "image"></a>',
+        compile: function(element) {
+            // Use the compile function from the RecursionHelper,
+            // And return the linking function(s) which it returns
+            return RecursionHelper.compile(element);
+        }
+    };
+});
 
 listModule.directive("tree", function(RecursionHelper) {
     return {

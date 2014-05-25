@@ -39,3 +39,99 @@
 	color:#0F8516;
 	text-decoration:underline;
 }
+
+/*-----BOTTOM PANEL -----*/
+#bottom-panel {
+    margin-top: 17px;
+}
+
+#bottom-panel ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+ul#page-slider {
+    width: 200px;
+}
+#bottom-panel a{
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+#bottom-panel a.disabled{
+    pointer-events: none;
+    cursor: default;
+}
+
+a#contents-button {
+    background: url('../images/TOOLBAR/inhalup.BMP');
+}
+a#contents-button:active {
+    background: url('../images/TOOLBAR/inhaldn.BMP');
+}
+a#contents-buttondisabled{
+    background: url('../images/TOOLBAR/inhalgr.bmp');
+}
+
+a#prev-page-button {
+    background: url('../images/TOOLBAR/leftup.BMP');
+}
+a#prev-page-button:active {
+    background: url('../images/TOOLBAR/leftdn.BMP');
+}
+a#prev-page-buttondisabled {
+    background: url('../images/TOOLBAR/leftgr.BMP');
+}
+
+
+a#next-page-button {
+    background: url('../images/TOOLBAR/rightup.BMP');
+}
+a#next-page-button:active {
+    background: url('../images/TOOLBAR/rightdn.BMP');
+}
+a#next-page-buttondisabled {
+    background: url('../images/TOOLBAR/rightgr.BMP');
+}
+
+
+a#undo-button {
+    background: url('../images/TOOLBAR/undoup.BMP');
+}
+a#undo-button:active {
+    background: url('../images/TOOLBAR/undodn.BMP');
+}
+a#undo-button-disabled {
+    background: url('../images/TOOLBAR/undogr.BMP');
+}
+
+a#first-page-button{
+    background: url('../images/TOOLBAR/ltendup.BMP');
+}
+a#first-page-button:active{
+    background: url('../images/TOOLBAR/ltenddn.BMP');
+}
+a#first-page-buttondisabled{
+    background: url('../images/TOOLBAR/ltendgr.BMP');
+}
+
+a#last-page-button{
+    background: url('../images/TOOLBAR/rtendup.BMP');
+}
+a#last-page-button:active{
+    background: url('../images/TOOLBAR/rtenddn.BMP');
+}
+a#last-page-buttondisabled{
+    background: url('../images/TOOLBAR/rtendgr.BMP');
+}
+
+a#bookmark-button {
+    background: url('../images/TOOLBAR/Bkmrkup.bmp');
+}
+a#bookmark-button:active {
+    background: url('../images/TOOLBAR/Bkmrkdn.bmp');
+}

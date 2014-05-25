@@ -1,5 +1,7 @@
 ﻿    <link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <link rel="stylesheet" type="text/css" href="css/angular-slider.min.css">
+
 			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="container-fluid">
 					<div class = "row">
@@ -17,21 +19,11 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						 <ul class="nav navbar-nav">
-							<!--<li><a href="#"><img src = "images/first.png" alt = "image"></a></li>
-							<li><a href="#"><img src = "images/dif.png" alt = "image"></a></li>
-							<li><a href="#"><img src = "images/graf.png" alt = "image"></a></li>
-							<li><a href="#"><img src = "images/task.png" alt = "image"></a></li>-->
                              <li ng-repeat="item in content.topPanelButtons">
-                                 <a href="{{item.href}}" ng-mousedown = "item.onMouseDown()" ng-mouseup = "item.onMouseUp()">
-                                     <img ng-src = "{{item.currentImageUrl}}" alt = "image"></a>
+                                 <navbutton item="item"></navbutton>
                              </li>
 						 </ul>
-						<!-- <form class="navbar-form navbar-right" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">Start</button>
-						</form> -->
+
 		 
 					</div><!-- /.navbar-collapse -->
 					</div>
@@ -45,7 +37,31 @@
 			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="container-fluid">
 					<div class = "row">
-						<div class="navbar-header"></div>
-					</div>
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                                <span class="sr-only">Открыть навигацию</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                            <ul class="nav navbar-nav">
+                                <li id="bottom-panel">
+                                    <ul><a href="{{content.contentsLink}}" id="contents-button{{bottomPanel.contents}}" ng-class="bottomPanel.contents"></a></ul>
+                                    <ul><a href="{{content.pagesUrl[0]}}" id="first-page-button{{bottomPanel.firstPage}}" ng-class="bottomPanel.firstPage"/></ul>
+                                    <ul><a href="{{content.prevPageUrl}}" id="prev-page-button{{bottomPanel.prevPage}}" ng-class="bottomPanel.prevPage"/></ul>
+                                    <ul id="page-slider">
+                                        <slider floor="1" ceiling="3" step="1" precision="0" translate="pageFormatting" ng-model="page" end="sliderRedirect()"></slider>
+                                    </ul>
+                                    <ul><a href="{{content.nextPageUrl}}" id="next-page-button{{bottomPanel.nextPage}}" ng-class="bottomPanel.nextPage"/></ul>
+                                    <ul><a href="{{content.pagesUrl[content.pages-1]}}" id="last-page-button{{bottomPanel.lastPage}}" ng-class="bottomPanel.lastPage"/></ul>
+                                    <ul><a href="#" onclick="history.back(); return false;" id="undo-button{{bottomPanel.undo}}" ng-class="bottomPanel.undo"/></ul>
+                                    <ul><a href="#" id="bookmark-button" ng-click="onBkmrkClick()"></a></ul>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 				</div><!-- /.container-fluid -->
 			</nav>
