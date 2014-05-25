@@ -58,8 +58,8 @@ RewriteCond %{REQUEST_URI} ^/(images/)(.*)$ [OR]
 RewriteCond %{REQUEST_URI} ^/(js/)(.*)$
 RewriteRule ^(.*)$ frontend/%1%2 [L]
 
-RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^(.*)$ contents/vol1 [R,L]
+RewriteCond %{REQUEST_URI} ^(/)*$
+RewriteRule ^(.*)$ contents/vol1 [R]
 
 RewriteCond %{REQUEST_URI} ^/contents/(.*)$ [OR]
 RewriteCond %{REQUEST_URI} ^/content/(.*)$
