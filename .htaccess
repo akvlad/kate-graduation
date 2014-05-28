@@ -46,17 +46,17 @@ RewriteEngine On
 ##
 
 RewriteBase /
-RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/css/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/fonts/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/images/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/js/)(.*)$
-RewriteRule ^(.*)$ frontend/%3%4 [L]
+#RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/css/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/fonts/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/images/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/content(s)*(.*)(/js/)(.*)$
+#RewriteRule ^(.*)$ frontend/%3%4 [L]
 
-RewriteCond %{REQUEST_URI} ^/(css/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/(fonts/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/(images/)(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/(js/)(.*)$
-RewriteRule ^(.*)$ frontend/%1%2 [L]
+#RewriteCond %{REQUEST_URI} ^/(css/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/(fonts/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/(images/)(.*)$ [OR]
+#RewriteCond %{REQUEST_URI} ^/(js/)(.*)$
+#RewriteRule ^(.*)$ frontend/%1%2 [L]
 
 RewriteCond %{REQUEST_URI} ^(/)*$
 RewriteRule ^(.*)$ contents/vol1 [R]

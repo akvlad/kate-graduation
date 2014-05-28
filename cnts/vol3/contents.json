@@ -2,20 +2,20 @@
     "topPanelButtons":
         [
             {
-                "pressedIcon": "/frontend/images/INHALT/Book1on.bmp",
-                "unpressedIcon": "/frontend/images/INHALT/Book1off.bmp",
+                "pressedIcon": "/frontend/images/INHALT/Book1on.png",
+                "unpressedIcon": "/frontend/images/INHALT/Book1off.png",
                 "pressed": false,
                 "href": "/contents/vol1"
             },
             {
-                "pressedIcon": "/frontend/images/INHALT/Book2on.bmp",
-                "unpressedIcon": "/frontend/images/INHALT/Book2off.bmp",
+                "pressedIcon": "/frontend/images/INHALT/Book2on.png",
+                "unpressedIcon": "/frontend/images/INHALT/Book2off.png",
                 "pressed": false,
                 "href": "/contents/vol2"
             },
             {
-                "pressedIcon": "/frontend/images/INHALT/Book3on.bmp",
-                "unpressedIcon": "/frontend/images/INHALT/Book3off.bmp",
+                "pressedIcon": "/frontend/images/INHALT/Book3on.png",
+                "unpressedIcon": "/frontend/images/INHALT/Book3off.png",
                 "pressed": true,
                 "href": "/contents/vol3"
             }

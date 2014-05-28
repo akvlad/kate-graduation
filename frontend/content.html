@@ -1,6 +1,6 @@
-﻿    <link rel="stylesheet" type="text/css" href="css/style.css">
+﻿    <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
 
-    <link rel="stylesheet" type="text/css" href="css/angular-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="/frontend/css/angular-slider.min.css">
 
 			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="container-fluid">
@@ -13,7 +13,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							 </button>
-							<a class="navbar-brand" href="/"><img src = "images/logo.png" alt = "image"></a>
+							<a class="navbar-brand" href="/"><img src = "/frontend/images/logo.png" alt = "image"></a>
 						</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +31,7 @@
 			</nav>
 			
 			<div id = "content">
-			<div class = "row" ng-bind-html="content.content"></div>
+			<div class = "row" dynamic="content.content" ></div>
 			</div>
 			
 			<nav class="navbar navbar-inverse" role="navigation">

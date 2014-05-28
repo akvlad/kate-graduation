@@ -7,26 +7,26 @@
     "pagesUrl": ["/content/par1/p1", "/content/par1/p2", "/content/par1/p3"],
     "topPanelButtons": [
         {
-            "pressedIcon": "/images/FOLDERS/B1-f1-AC.BMP",
-            "unpressedIcon": "/images/FOLDERS/b1-f1-pa.bmp",
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f1-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f1-pa.png",
             "pressed": false,
             "href": "/content/par1/p1"
         },
         {
-            "pressedIcon": "/images/FOLDERS/B1-f2-AC.BMP",
-            "unpressedIcon": "/images/FOLDERS/b1-f2-pa.bmp",
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f2-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f2-pa.png",
             "pressed": true,
             "href": "/content/par1/p2"
         },
         {
-            "pressedIcon": "/images/FOLDERS/B1-f3-AC.BMP",
-            "unpressedIcon": "/images/FOLDERS/B1-f3-pA.BMP",
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f3-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f3-pA.png",
             "pressed": false,
             "href": "/content/par1/p3"
         },
         {
-            "pressedIcon": "/images/FOLDERS/B1-f4-AC.BMP",
-            "unpressedIcon": "/images/FOLDERS/B1-f4-pA.BMP",
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f4-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f4-pA.png",
             "pressed": false,
             "href": "#"
         }],

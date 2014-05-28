@@ -5,7 +5,6 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
         function(data)
         {
             $scope.content = data;
-            $scope.content.content = $sce.trustAsHtml(data.content);
             angular.forEach($scope.content.topPanelButtons, defineButton);
             $scope.bottomPanel = getBottomPanel($scope);
             $scope.page = $scope.content.pageId;
@@ -15,6 +14,10 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
             };
         }
     );
+
+    $scope.initMath = function(){
+        MathJax.Hub.Typeset();
+    };
 
     $scope.onBkmrkClick=function()
     {
@@ -88,3 +91,32 @@ function getBottomPanel($scope)
         "undo": (window.history.length == 0 ? "disabled" : "")
     }
 }
+
+listModule.directive('dynamic', function ($compile) {
+    return {
+        restrict: 'A',
+        replace: true,
+        link: function (scope, ele, attrs) {
+            scope.$watch(attrs.dynamic, function(html) {
+                ele.html(html);
+                $compile(ele.contents())(scope);
+            });
+        }
+    };
+});
+
+listModule.directive("formula", function() {
+    return {
+        restrict: "E",
+        replace: false,
+        template: '',
+        compile: function() {
+            return {
+                post:
+                    function() {
+                        MathJax.Hub.Typeset();
+                    }
+            }
+        }
+    }
+});
