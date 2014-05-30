@@ -1,0 +1,59 @@
+{
+    "pages": 2,
+    "pageId": 2,
+    "contentsLink": "/contents/vol1",
+    "nextPageUrl": null,
+    "prevPageUrl": "/tasks/tsk1/p1",
+    "pagesUrl": ["/tasks/tsk1/p1", "/tasks/tsk1/p2"],
+    "topPanelButtons": [
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f1-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f1-pa.png",
+            "pressed": false,
+            "href": "/content/par1/p1"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f2-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f2-pa.png",
+            "pressed": false,
+            "href": "/content/par1/p2"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f3-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f3-pA.png",
+            "pressed": false,
+            "href": "/content/par1/p3"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f4-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f4-pA.png",
+            "pressed": false,
+            "href": "/tasks/tsk1/p1"
+        }],
+    "title":"1.7 Упражнения",
+    "content":
+        [
+            {
+                "type": "header",
+                "content": "Найдите <formula>\\(\\mathit{f}'( 0 )\\)</formula>, если"
+            },
+            {
+                "id": 2,
+                "type": "task",
+                "content": "<formula>\\( \\mathit{f}(x) =  \\left\\{    \\begin{array}{l l}     \\sin(x^2 \\cos(\\frac{1}{x})) & x \\neq 0     0 & x = 0   \\end{array} \\right. \\)</formula>",
+                "tabs":
+                    [
+                        {
+                            "type":"content",
+                            "name":"Tab1",
+                            "content":"Tab1 content"
+                        },
+                        {
+                            "type":"content",
+                            "name":"Tab2",
+                            "content":"Tab2 content"
+                        }
+                    ]
+            }
+        ]
+}

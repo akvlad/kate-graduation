@@ -1,0 +1,90 @@
+﻿    <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="/frontend/css/angular-slider.min.css">
+
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="container-fluid">
+					<div class = "row">
+					<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Открыть навигацию</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							 </button>
+							<a class="navbar-brand" href="/"><img src = "/frontend/images/logo.png" alt = "image"></a>
+						</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav">
+                             <li ng-repeat="item in data.topPanelButtons">
+                                 <navbutton item="item"></navbutton>
+                             </li>
+						 </ul>
+
+		 
+					</div><!-- /.navbar-collapse -->
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
+			
+			<div id = "content">
+			<div class = "row" >
+                <div ng-repeat="item in data.content">
+                    <div ng-switch on="item.type">
+                        <div ng-switch-when="header">
+                            <div class="clear"></div>
+                            <header><span dynamic="item.content"></span></header>
+                        </div>
+                        <div ng-switch-when="task" class="task-wrapper">
+                            <p>{{item.taskN}}.
+                                <a href="#" ng-click="solveTask(item)" class="solve-button{{item.solvedClass}}"></a>
+                                <span dynamic="item.content"></span> </p>
+                            <div class="accordion-wrapper">
+                            <accordion close-others="true">
+                                <accordion-group ng-repeat="tab in item.tabs" ng-switch on="tab.type" ah="redir(tab)">
+                                    <accordion-heading>{{tab.name}}</accordion-heading>
+                                    <span ng-switch-when="content" dynamic="tab.content"></span>
+                                    <span ng-switch-when="teaching"><teaching data="tab"></teaching></span>
+                                </accordion-group>
+                            </accordion>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			</div>
+			
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="container-fluid">
+					<div class = "row">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                                <span class="sr-only">Открыть навигацию</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                            <ul class="nav navbar-nav">
+                                <li id="bottom-panel">
+                                    <ul><a href="{{data.contentsLink}}" id="contents-button{{bottomPanel.contents}}" ng-class="bottomPanel.contents"></a></ul>
+                                    <ul><a href="{{data.pagesUrl[0]}}" id="first-page-button{{bottomPanel.firstPage}}" ng-class="bottomPanel.firstPage"/></ul>
+                                    <ul><a href="{{data.prevPageUrl}}" id="prev-page-button{{bottomPanel.prevPage}}" ng-class="bottomPanel.prevPage"/></ul>
+                                    <ul id="page-slider">
+                                        <slider floor="1" ceiling="{{data.pages}}" step="1" precision="0" translate="pageFormatting" ng-model="page" end="sliderRedirect()"></slider>
+                                    </ul>
+                                    <ul><a href="{{data.nextPageUrl}}" id="next-page-button{{bottomPanel.nextPage}}" ng-class="bottomPanel.nextPage"/></ul>
+                                    <ul><a href="{{data.pagesUrl[content.pages-1]}}" id="last-page-button{{bottomPanel.lastPage}}" ng-class="bottomPanel.lastPage"/></ul>
+                                    <ul><a href="#" onclick="history.back(); return false;" id="undo-button{{bottomPanel.undo}}" ng-class="bottomPanel.undo"/></ul>
+                                    <ul><a href="#" id="bookmark-button" ng-click="onBkmrkClick()"></a></ul>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+				</div><!-- /.container-fluid -->
+			</nav>

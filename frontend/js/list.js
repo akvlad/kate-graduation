@@ -1,9 +1,10 @@
-var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper','uiSlider', 'fundoo.services', 'ngStorage']);
+var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper','uiSlider', 'fundoo.services', 'ngStorage', 'ui.bootstrap']);
 
 listModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.
         when("/content/:cntId/:pId",{templateUrl: "/frontend/content.html",controller: 'contentCtrl'}).
         when("/contents/:cntId",{templateUrl: "/frontend/list.html",controller: listCtrl}).
+        when("/tasks/:taskId/:pageId", {templateUrl: "/frontend/tasks.html", controller: 'tasksCtrl'}).
         otherwise({"redirectTo": "/"});
     $locationProvider.html5Mode(true);
 });

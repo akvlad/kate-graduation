@@ -1,0 +1,179 @@
+{
+    "pages": 2,
+    "pageId": 1,
+    "contentsLink": "/contents/vol1",
+    "nextPageUrl": "/tasks/tsk1/p2",
+    "prevPageUrl": null,
+    "pagesUrl": ["/tasks/tsk1/p1", "/tasks/tsk1/p2"],
+    "topPanelButtons": [
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f1-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f1-pa.png",
+            "pressed": false,
+            "href": "/content/par1/p1"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f2-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/b1-f2-pa.png",
+            "pressed": false,
+            "href": "/content/par1/p2"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f3-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f3-pA.png",
+            "pressed": false,
+            "href": "/content/par1/p3"
+        },
+        {
+            "pressedIcon": "/frontend/images/FOLDERS/B1-f4-AC.png",
+            "unpressedIcon": "/frontend/images/FOLDERS/B1-f4-pA.png",
+            "pressed": true,
+            "href": "/tasks/tsk1/p1"
+        }],
+    "title":"1.7 Упражнения",
+    "content":
+        [
+            {
+                "type": "header",
+                "content": "Найдите <formula>\\(\\mathit{f}'( 0 )\\)</formula>, если"
+            },
+            {
+                "id": 1,
+                "type": "task",
+                "content": "<formula>\\( \\mathit{f}(x) =  \\left\\{    \\begin{array}{l l} \\sin(x^2 \\cos(\\frac{1}{x})) & x \\neq 0  \\\\ 0 & x = 0 \\end{array} \\right. \\)</formula>",
+                "tabs":
+                    [
+                        {
+                            "type":"content",
+                            "name":"Tab1",
+                            "content":"<div>Tab1 content</div>"
+                        },
+                        {
+                            "type":"link",
+                            "name":"Теория",
+                            "content":"/content/par1/p3"
+                        }
+                    ]
+            },
+            {
+                "id": 3,
+                "type": "task",
+                "content": "<formula>\\( \\mathit{f}(x) =  \\left\\{    \\begin{array}{l l} \\sin(x^2 \\cos(\\frac{1}{x})) & x \\neq 0  \\\\ 0 & x = 0 \\end{array} \\right. \\)</formula>",
+                "tabs":
+                    [
+                        {
+                            "type":"content",
+                            "name":"Tab1",
+                            "content":"<div>Tab1 content</div>"
+                        },
+                        {
+                            "type":"link",
+                            "name":"Теория",
+                            "content":"/content/par1/p3"
+                        }
+                    ]
+            },
+            {
+                "id": 4,
+                "type": "task",
+                "content": "<formula>\\( \\mathit{f}(x) =  \\left\\{    \\begin{array}{l l} \\sin(x^2 \\cos(\\frac{1}{x})) & x \\neq 0  \\\\ 0 & x = 0 \\end{array} \\right. \\)</formula>",
+                "tabs":
+                    [
+                        {
+                            "type":"content",
+                            "name":"Tab1",
+                            "content":"<div>Tab1 content</div>"
+                        },
+                        {
+                            "type":"link",
+                            "name":"Теория",
+                            "content":"/content/par1/p3"
+                        },
+                        {
+                            "type":"teaching",
+                            "name":"Обучение",
+                            "task":"А что <i>йто</i> чаво йто<b>???</b> <formula>\\( \\frac{n!}{k!(n-k)!} = \\binom{n}{k}  \\)</formula>",
+                            "showAnswers": {
+                                "right": "А таво йто таво йто!!!! <formula>\\( \\frac{n!}{k!(n-k)!} = \\binom{n}{k}  \\)</formula>",
+                                "shown": "Соизволите сначала задачку решить, милсдарь"
+                            },
+                            "showSolvations":{
+                                "right": "A чавойто??? Тавойто!!! Чавойто чавойто??? Тавойто тавойто!!! <formula>\\( \\frac{n!}{k!(n-k)!} = \\binom{n}{k}  \\)</formula>",
+                                "shown": "Соизволите сначала задачку решить, милсдарь"
+                            },
+                            "steps": [
+                                {
+                                    "id": 1,
+                                    "answers": [
+                                        {
+                                            "id": 1,
+                                            "content": "Че???"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "content": "Ашотакои???"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "content": "Эээ???"
+                                        },
+                                        {
+                                            "id": 4,
+                                            "content": "А таво йто!!!"
+                                        },
+                                        {
+                                            "id": 5,
+                                            "content": "Правильный ответ"
+                                        },
+                                        {
+                                            "id": 6,
+                                            "content": "Ыыыыыы!!!"
+                                        },
+                                        {
+                                            "id": 7,
+                                            "content": "<formula>\\( \\frac{n!}{k!(n-k)!} = \\binom{n}{k}  \\)</formula>"
+                                        }
+                                    ],
+                                    "rightAns": 4
+                                },
+                                {
+                                    "id": 2,
+                                    "answers": [
+                                        {
+                                            "id": 1,
+                                            "content": "Чочо???"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "content": "Йойойо???"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "content": "таво йто!!!"
+
+                                        },
+                                        {
+                                            "id": 4,
+                                            "content": "Атышо???"
+                                        },
+                                        {
+                                            "id": 5,
+                                            "content": "Самый правильный ответ"
+                                        },
+                                        {
+                                            "id": 6,
+                                            "content": "Ыыыыыы!!!"
+                                        },
+                                        {
+                                            "id": 7,
+                                            "content": "<formula>\\( \\frac{n!}{k!(n-k)!} = \\binom{n}{k}  \\)</formula>"
+                                        }
+                                    ],
+                                    "rightAns": 3
+                                }
+                            ]
+                        }
+                    ]
+            }
+        ]
+}

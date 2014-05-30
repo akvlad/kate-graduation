@@ -140,3 +140,59 @@ a#bookmark-button:active {
     float:left;
     margin: 10px;
 }
+
+a.solve-button {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url('../images/PAGEBTNS/REGBTNUP.BMP');
+}
+
+a.solve-button-solved {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url('../images/PAGEBTNS/REGBTNDN.BMP');
+}
+
+.panel-group {
+    margin-top: 10px;
+}
+
+.task-wrapper {
+    float: left;
+    min-width: 540px;
+    width:50%;
+}
+
+.task-wrapper p{
+    margin:0;
+    padding: 0;
+}
+
+.clear {
+    clear:both;
+}
+
+.accordion-wrapper {
+    margin: 0 40px;
+}
+
+.teaching-acc-imgs {
+    height: 32px;
+    width: 32px;
+}
+
+.answer-content {
+    display: inline-block;
+}
+
+.answer-wrapper {
+    margin: 5px 0;
+}
+
+/*.accordion-wrapper .panel-group {
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+}*/

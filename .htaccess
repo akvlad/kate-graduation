@@ -62,5 +62,6 @@ RewriteCond %{REQUEST_URI} ^(/)*$
 RewriteRule ^(.*)$ contents/vol1 [R]
 
 RewriteCond %{REQUEST_URI} ^/contents/(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^/content/(.*)$
+RewriteCond %{REQUEST_URI} ^/content/(.*)$ [OR]
+RewriteCond %{REQUEST_URI} ^/tasks/(.*)$
 RewriteRule ^.*$ /frontend/index.html

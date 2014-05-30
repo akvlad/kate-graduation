@@ -1,0 +1,30 @@
+<div>
+    <div class="header">
+        <h3>Задача:</h3>
+        <div dynamic="data.task"></div>
+        <accordion close-others="true">
+            <accordion-group>
+                <accordion-heading>
+                    <img class="teaching-acc-imgs" src="/frontend/images/key.png" /> Ответ
+                </accordion-heading>
+                <span dynamic="data.showAnswers.shown"></span>
+            </accordion-group>
+            <accordion-group>
+                <accordion-heading>
+                    <img class="teaching-acc-imgs" src="/frontend/images/Book-icon.png" /> Решение
+                </accordion-heading>
+                <span dynamic="data.showSolvations.shown"></span>
+            </accordion-group>
+        </accordion>
+    </div>
+    <div class="answers" trash="{{i=0}}">
+        <div ng-repeat="step in data.steps | filter: data.currentStep">
+            <h3>Шаг {{step.id}}. Выберите правильный вариант</h3>
+            <div ng-repeat="ans in step.answers | filter : step.comparator" class="answer-wrapper">
+                <button ng-click="step.onAnsClick(ans)">{{ans.randIndex+1}}</button>
+                <div class="answer-content" dynamic="ans.content"></div>
+            </div>
+            <button ng-click="step.updateAnswers()" trash="{{i=0}}">Все ответы неверные</button>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
         {
             $scope.content = data;
             angular.forEach($scope.content.topPanelButtons, defineButton);
-            $scope.bottomPanel = getBottomPanel($scope);
+            $scope.bottomPanel = getBottomPanel($scope.content);
             $scope.page = $scope.content.pageId;
             $scope.pageFormatting = function(value) { return value.toString() + ":" + $scope.content.pages }
             $scope.sliderRedirect = function() {
@@ -14,10 +14,6 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
             };
         }
     );
-
-    $scope.initMath = function(){
-        MathJax.Hub.Typeset();
-    };
 
     $scope.onBkmrkClick=function()
     {
@@ -41,7 +37,8 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
 
 }]);
 
-listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', 'content', function($scope, $location, $localStorage, content)
+listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', 'content',
+    function($scope, $location, $localStorage, content)
 {
     $scope.content = content;
     $scope.storage = $localStorage;
@@ -80,14 +77,14 @@ listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', '
 }
 ]);
 
-function getBottomPanel($scope)
+function getBottomPanel($content)
 {
     return {
-        "contents": ($scope.content.contentsLink == null ? "disabled" : ""),
-        "prevPage": ($scope.content.prevPageUrl == null ? "disabled" : ""),
-        "nextPage": ($scope.content.nextPageUrl == null ? "disabled" : ""),
-        "firstPage": ($scope.content.pageId == 1 ? "disabled" : ""),
-        "lastPage": ($scope.content.pageId == $scope.content.pages ? "disabled" : ""),
+        "contents": ($content.contentsLink == null ? "disabled" : ""),
+        "prevPage": ($content.prevPageUrl == null ? "disabled" : ""),
+        "nextPage": ($content.nextPageUrl == null ? "disabled" : ""),
+        "firstPage": ($content.pageId == 1 ? "disabled" : ""),
+        "lastPage": ($content.pageId == $content.pages ? "disabled" : ""),
         "undo": (window.history.length == 0 ? "disabled" : "")
     }
 }
@@ -96,10 +93,13 @@ listModule.directive('dynamic', function ($compile) {
     return {
         restrict: 'A',
         replace: true,
-        link: function (scope, ele, attrs) {
-            scope.$watch(attrs.dynamic, function(html) {
+        /*scope: {
+            dynamic: "="
+        },*/
+        link: function ($scope, ele, attrs) {
+            $scope.$watch(attrs.dynamic, function(html) {
                 ele.html(html);
-                $compile(ele.contents())(scope);
+                $compile(ele.contents())($scope);
             });
         }
     };
