@@ -114,7 +114,7 @@ listModule.directive("formula", function() {
             return {
                 post:
                     function() {
-                        MathJax.Hub.Typeset();
+                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                     }
             }
         }
