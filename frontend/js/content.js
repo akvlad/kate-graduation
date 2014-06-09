@@ -23,7 +23,7 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
                 title: 'Закладки',
                 backdrop: true,
                 controller: 'bookmarkCtrl',
-                footerTemplate: '    <button class="btn" id="remove-bookmarks" ng-click="removeBookmarks()">Удалить</button>\
+                footerTemplate: '<button class="btn" id="remove-bookmarks" ng-click="removeBookmarks()">Удалить</button>\
                     <button class="btn" id="add-bookmark" ng-click="addBookmark()">Добавить</button>\
                     <button class="btn btn-primary ng-binding" ng-click="$modalSuccess()">Ok</button>',
                 success: {label: 'Ok'}
@@ -93,9 +93,6 @@ listModule.directive('dynamic', function ($compile) {
     return {
         restrict: 'A',
         replace: true,
-        /*scope: {
-            dynamic: "="
-        },*/
         link: function ($scope, ele, attrs) {
             $scope.$watch(attrs.dynamic, function(html) {
                 ele.html(html);
