@@ -1,3 +1,6 @@
+/*
+ * Контроллер задач
+ */
 listModule.controller('tasksCtrl',['$scope', '$routeParams', '$http', '$location', '$localStorage', 'createDialog',
 function($scope, $routeParams, $http, $location,$localStorage, createDialog){
     if(typeof($localStorage.solvedTasks) == 'undefined' ) $localStorage.solvedTasks = [];
@@ -15,6 +18,8 @@ function($scope, $routeParams, $http, $location,$localStorage, createDialog){
                 });
             };
             var taskNum = 1;
+            // Подготовка задачи к выводу
+            // Нумерация, обработка решенных задач и т.д.
             angular.forEach($scope.data.content, function(v){
                 if(v.type=="task")
                 {
@@ -30,6 +35,7 @@ function($scope, $routeParams, $http, $location,$localStorage, createDialog){
         }
     );
 
+    //Аналогично content.js
     $scope.onBkmrkClick=function()
     {
         createDialog('/frontend/bookmark_popup.html',
@@ -49,28 +55,20 @@ function($scope, $routeParams, $http, $location,$localStorage, createDialog){
             }
         )
     };
-
-    $scope.addBookmark = function()
-    {
-        var maxId = $scope.storage.bookmarks.length > 0 ? $scope.storage.bookmarks[$scope.storage.bookmarks.length-1].id : 0;
-
-        $scope.storage.bookmarks.push(
-            {
-                "path":$location.path(),
-                "id":maxId+1,
-                "name": $scope.content.title + ", "+$scope.content.pageId+"/"+$scope.content.pages,
-                "checked":false
-            });
-    }
-
-
-
+    /*
+     * Обработка функии редиректа по
+     * некоторым табам (в частности таб "Теория")
+     */
     $scope.redir =function (tab)
     {
         if(tab.type != 'link') return;
         $location.path(tab.content);
     }
 
+    /*
+     * Обработка решенной задачи
+     * (клик на зеленую галочку)
+     */
     $scope.solveTask = function(task)
     {
         if($localStorage.solvedTasks.indexOf(task.id) == -1)
@@ -79,7 +77,9 @@ function($scope, $routeParams, $http, $location,$localStorage, createDialog){
     }
 
 }]);
-
+/*
+ * Таб "Обучение", перемешивание вариантов ответов.
+ */
 function shuffleAnswers(answers)
 {
     angular.forEach(answers, function(ans){
@@ -92,7 +92,10 @@ function shuffleAnswers(answers)
         ans.randIndex = i;
     });
 }
-
+/*
+ * обработка таба "обучение".
+ * обработчик правильного/неправильного ответа
+ */
 function processTabs(tab)
 {
     if(tab.type!="teaching") return;
@@ -128,7 +131,9 @@ function processTabs(tab)
         shuffleAnswers(step.answers);
     });
 }
-
+/*
+ * Директива заголовка задания
+ */
 listModule.directive('header', function(){
     return {
         restrict: "E",
@@ -136,7 +141,9 @@ listModule.directive('header', function(){
         template: '<p class="task-heading" ng-transclude></p>'
     }
 });
-
+/*
+ * Директива текста задания
+ */
 listModule.directive('task', function(){
     return {
         restrict: "E",

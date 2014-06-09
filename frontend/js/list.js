@@ -1,5 +1,5 @@
 var listModule = angular.module('MultMathModule',['ngRoute', 'RecursionHelper','uiSlider', 'fundoo.services', 'ngStorage', 'ui.bootstrap']);
-
+// Конфигурация приложения в зависимости от запрошенного url
 listModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.
         when("/content/:cntId/:pId",{templateUrl: "/frontend/content.html",controller: 'contentCtrl'}).
@@ -8,7 +8,11 @@ listModule.config(function($routeProvider, $locationProvider) {
         otherwise({"redirectTo": "/"});
     $locationProvider.html5Mode(true);
 });
-
+/*
+ * Присваивание классов узлам списка
+ * проходит рекурсивно по вложенным спискам (том - глава - пункт ...)
+ * @param {object} data объект contents, возвращенный из json
+ */
 function listPart(data)
 {
     angular.forEach(data, function(item){
@@ -16,7 +20,11 @@ function listPart(data)
         listPart(item.contents);
     });
 }
-
+/*
+ * Подготовка кнопки верхнего меню
+ * обработчики для кнопки, корректные иконки.
+ * @param {object} v оъект, восстановленный из json-описания кнопки
+ */
 function defineButton(v)
 {
     v.currentImageUrl = v.pressed ? v.pressedIcon : v.unpressedIcon;
@@ -32,7 +40,11 @@ function defineButton(v)
     }
 }
 
-
+/*
+ * Контроллер обработки оглавления (/contents/...)
+ * обрабатывает json оглавления запрошенного тома,
+ * готовит оглавление к выводу в браузер
+ */
 function listCtrl($http, $scope, $routeParams)
 {
     $http.get('/cnts/'+$routeParams.cntId+'/contents.json').success(
@@ -45,7 +57,10 @@ function listCtrl($http, $scope, $routeParams)
 
 
 }
-
+/*
+ * Директива кнопки на верхней панели (навигации)
+ * ПРимер кнопки - 1 том, 2 том, верхняя панель в содержании книги
+ */
 listModule.directive("navbutton", function(RecursionHelper) {
     return {
         restrict: "E",
@@ -55,13 +70,13 @@ listModule.directive("navbutton", function(RecursionHelper) {
             '<a href="{{item.href}}" ng-mousedown = "item.onMouseDown()" ng-mouseup = "item.onMouseUp()">\
                 <img ng-src = "{{item.currentImageUrl}}" alt = "image"></a>',
         compile: function(element) {
-            // Use the compile function from the RecursionHelper,
-            // And return the linking function(s) which it returns
             return RecursionHelper.compile(element);
         }
     };
 });
-
+/*
+ * Директива рекурсивного вывода вложенных списков оглавления тома
+ */
 listModule.directive("tree", function(RecursionHelper) {
     return {
         restrict: "E",

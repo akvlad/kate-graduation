@@ -1,6 +1,11 @@
+/*
+ * Контроллер вывода содержания запрошенной страницы
+ *
+ */
 listModule.controller('contentCtrl', ['$scope', '$routeParams', '$http', '$sce', '$location', 'createDialog',
 function ($scope, $routeParams, $http, $sce, $location, createDialog)
 {
+    // запрос json
     $http.get("/cnt/"+$routeParams.cntId+"/"+$routeParams.pId+".json").success(
         function(data)
         {
@@ -14,7 +19,7 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
             };
         }
     );
-
+    // вывод диалогового окна правления закладками
     $scope.onBkmrkClick=function()
     {
         createDialog('/frontend/bookmark_popup.html',
@@ -36,14 +41,20 @@ function ($scope, $routeParams, $http, $sce, $location, createDialog)
     };
 
 }]);
-
+/*
+ * Контроллер диалогового окна закладок
+ */
 listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', 'content',
     function($scope, $location, $localStorage, content)
 {
+    // Достаем закладки из локального хранилища
     $scope.content = content;
     $scope.storage = $localStorage;
     if(!$scope.storage.bookmarks) $scope.storage.bookmarks = [];
     angular.forEach($scope.storage.bookmarks, function($v) {$v.checked = false;});
+    /*
+     * Функция удаления закладки
+     */
     $scope.removeBookmark = function(bookmark)
     {
         angular.forEach($scope.storage.bookmarks, function($v, $i) {
@@ -53,6 +64,9 @@ listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', '
             }
         });
     };
+    /*
+     * Добавление закладки
+     */
     $scope.addBookmark = function()
     {
         var maxId = $scope.storage.bookmarks.length > 0 ? $scope.storage.bookmarks[$scope.storage.bookmarks.length-1].id : 0;
@@ -65,6 +79,9 @@ listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', '
                 "checked":false
             });
     }
+    /*
+     * Удаление нескольких закладок
+     */
     $scope.removeBookmarks = function()
     {
         var length = $scope.storage.bookmarks.length;
@@ -76,7 +93,10 @@ listModule.controller('bookmarkCtrl', ['$scope', '$location', '$localStorage', '
     }
 }
 ]);
-
+/*
+ * Инициализация нижней панели инструментов
+ * включение/выключение кнопок
+ */
 function getBottomPanel($content)
 {
     return {
@@ -88,7 +108,12 @@ function getBottomPanel($content)
         "undo": (window.history.length == 0 ? "disabled" : "")
     }
 }
-
+/*
+ * Директива-атрибут dynamic
+ * позволяет динамически привязывать html с директивами angularJS
+ * к html-тегам с корректной их компиляцией.
+ * В частности необходим для директивы <formula>
+ */
 listModule.directive('dynamic', function ($compile) {
     return {
         restrict: 'A',
@@ -101,7 +126,11 @@ listModule.directive('dynamic', function ($compile) {
         }
     };
 });
-
+/*
+ * Динамическая компиляция формул.
+ * Каждая формула (помимо LaTEX-нотации оборацивается в
+ * тег <formula>
+ */
 listModule.directive("formula", function() {
     return {
         restrict: "E",

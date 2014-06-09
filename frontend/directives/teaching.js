@@ -1,4 +1,9 @@
-listModule.directive("teaching",
+/*
+ * Директива таба "обучение"
+ * Использует подгружаемый html,
+ * teaching.html
+ */
+ listModule.directive("teaching",
 function()
 {
     return {
