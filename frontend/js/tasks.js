@@ -1,5 +1,5 @@
-listModule.controller('tasksCtrl',['$scope', '$routeParams', '$http', '$location', '$localStorage',
-function($scope, $routeParams, $http, $location,$localStorage){
+listModule.controller('tasksCtrl',['$scope', '$routeParams', '$http', '$location', '$localStorage', 'createDialog',
+function($scope, $routeParams, $http, $location,$localStorage, createDialog){
     if(typeof($localStorage.solvedTasks) == 'undefined' ) $localStorage.solvedTasks = [];
     $http.get("/tsks/"+$routeParams.taskId+"/"+$routeParams.pageId+".json").success(
         function(data)
@@ -49,6 +49,19 @@ function($scope, $routeParams, $http, $location,$localStorage){
             }
         )
     };
+
+    $scope.addBookmark = function()
+    {
+        var maxId = $scope.storage.bookmarks.length > 0 ? $scope.storage.bookmarks[$scope.storage.bookmarks.length-1].id : 0;
+
+        $scope.storage.bookmarks.push(
+            {
+                "path":$location.path(),
+                "id":maxId+1,
+                "name": $scope.content.title + ", "+$scope.content.pageId+"/"+$scope.content.pages,
+                "checked":false
+            });
+    }
 
 
 
